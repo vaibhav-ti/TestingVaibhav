@@ -1,0 +1,111 @@
+{
+  "name": "Django Backend",
+  "configuration": {
+    "authentication": {
+      "enabled": true,
+      "rest": {
+          "enabled": true
+      },
+      "social": {
+          "enabled": true,
+          "google": {
+              "enabled": false
+          },
+          "github": {
+              "enabled": false
+          },
+          "devconnect": {
+              "enabled": true
+          }
+      }
+  },
+    "database": {
+        "enabled": false,
+        "type": "postgresql"
+    },
+    "documentation": {
+        "enabled": true,
+        "swagger": {
+            "enabled": true
+        },
+        "readme": {
+            "enabled": true
+        },
+        "demo_curl_requests": {
+            "enabled": true
+        },
+        "sample_crud": {
+            "enabled": true
+        }
+    },
+    "configuration": {
+        "linter": {
+            "enabled": true
+        },
+        "local_debugger": {
+            "enabled": true
+        },
+        "dockerfile": {
+            "enabled": true
+        },
+        "logger": {
+            "enabled": true
+        },
+        "xray": {
+            "enabled": false
+        }
+    },
+    "caching": {
+        "enabled": false
+    },
+    "tests": {
+        "enabled": true,
+        "sample_tests": true
+    },
+    "s3": {
+        "enabled": false
+    },
+    "ci_cd": {
+        "deployment": {
+            "enabled": true
+        },
+        "publish": {
+            "enabled": true
+        },
+        "testing": {
+            "enabled": true
+        },
+        "code_analysis": {
+            "enabled": true
+        },
+        "test_coverage": {
+            "enabled": true
+        },
+        "linting": {
+            "enabled": true
+        }
+    },
+    "deployment": {
+        "enabled": true,
+        "selected": "ECS (CDK) - Recommended",
+        "cdk": {
+            "enabled": true,
+            "vpc":{
+                "available": true
+            },
+            "security_group": {
+                "available": false
+            },
+            "cluster": {
+                "available": true
+            },
+            "certificate": {
+                "available": true
+            }
+        },
+        "eyk": {
+            "enabled": false
+        }
+    }
+  }
+}

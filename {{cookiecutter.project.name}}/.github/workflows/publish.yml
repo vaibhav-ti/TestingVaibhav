@@ -1,0 +1,52 @@
+name: Publish Container Image to ECR
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - "cdk-deployment/**"
+
+env:
+  RSA_PRIVATE_KEY: ${{ '{{' }} secrets.RSA_PRIVATE_KEY }}
+
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Load env
+      run: |
+        python load_env.py
+
+    - name: Load .env file
+      uses: xom9ikk/dotenv@v1.0.2
+      with:
+        path: ./
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: $AWS_ACCESS_KEY_ID
+        aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+        aws-region: $AWS_REGION
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ '{{' }} steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: ${{ '{{' }} secrets.ECR_REPOSITORY }}
+        IMAGE_TAG: latest
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+    - name: Update Service
+      run: |
+        aws ecs update-service --cluster ${{ '{{' }} secrets.ECS_CLUSTER_NAME}} --service ${{ '{{' }} secrets.ECS_SERVICE_NAME}} --force-new-deployment

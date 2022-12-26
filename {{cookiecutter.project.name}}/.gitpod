@@ -1,0 +1,34 @@
+# image:
+#   file: .gitpod/Dockerfile
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 8000
+    onOpen: ignore
+
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+
+  - name: Setup, Install and Runserver
+    before: |
+        {%- if cookiecutter.deployment.selected == 'EYK' %}
+        curl -ssl https://eyk-assets.ey.io/eyk/eyk-installer.sh | bash
+        {%- endif %}
+        {%- if cookiecutter.deployment.selected == 'ECS (CDK) - Recommended' %}
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+        nvm install --lts
+        npm install -g aws-cdk
+        {% endif %}
+    init: |
+        python setup/git_hooks.py
+        python setup/dev.py
+        python setup/prod.py
+        bash scripts/init.sh
+    command:
+        bash scripts/entrypoint.sh
+
+
+vscode:
+  extensions:
+    - eamodio.gitlens
+    - ms-python.python
+    - alexcvzz.vscode-sqlite

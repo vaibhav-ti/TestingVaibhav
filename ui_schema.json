@@ -1,0 +1,287 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/name"
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/authentication/properties/rest/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/authentication/properties/social/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/configuration/properties/authentication/properties/social/properties/google/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/configuration/properties/authentication/properties/social/properties/github/properties/enabled"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/configuration/properties/authentication/properties/social/properties/devconnect/properties/enabled"
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "type": "LEAF",
+                  "scope": "#/properties/configuration/properties/authentication/properties/social/properties/enabled",
+                  "expectedValue": true
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "label": "Boilerplate"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/configuration/properties/local_debugger/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/configuration/properties/linter/properties/enabled"
+            }
+          ]
+        }
+      ],
+      "label": "Configurations"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/database/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/database/properties/type",
+              "options": {
+                "multi": false
+              },
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "type": "LEAF",
+                  "scope": "#/properties/configuration/properties/database/properties/enabled",
+                  "expectedValue": true
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "label": "Database"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/tests/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/tests/properties/sample_tests"
+            }
+          ]
+        }
+      ],
+      "label": "Tests"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/deployment/properties/enabled"
+            },
+            {
+              "type": "Group",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/configuration/properties/deployment/properties/selected"
+                },
+                {
+                  "type": "Group",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/configuration/properties/deployment/properties/cdk/properties/cluster/properties/available"
+                    }
+                  ],
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "type": "LEAF",
+                      "scope": "#/properties/configuration/properties/deployment/properties/selected/",
+                      "expectedValue": "ECS (CDK) - Recommended"
+                    }
+                  }
+                }
+              ],
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "type": "LEAF",
+                  "scope": "#/properties/configuration/properties/deployment/properties/enabled",
+                  "expectedValue": true
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "label": "IaC"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/configuration/properties/logger/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/configuration/properties/xray/properties/enabled",
+              "rule": {
+                "effect": "HIDE",
+                "condition": {
+                  "type": "LEAF",
+                  "scope": "#/properties/configuration/properties/deployment/properties/selected",
+                  "expectedValue": "EYK"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "label": "Observability"
+    },
+
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/ci_cd/properties/deployment/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/ci_cd/properties/testing/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/ci_cd/properties/test_coverage/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/ci_cd/properties/code_analysis/properties/enabled"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/configuration/properties/ci_cd/properties/linting/properties/enabled"
+            }
+          ]
+        }
+      ],
+      "label": "CI/CD"
+    },
+    {
+      "type": "Category",
+      "elements": [
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/configuration/properties/documentation/properties/enabled"
+                },
+                {
+                  "type": "Group",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/configuration/properties/documentation/properties/swagger/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/configuration/properties/documentation/properties/readme/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/configuration/properties/documentation/properties/demo_curl_requests/properties/enabled"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/configuration/properties/documentation/properties/sample_crud/properties/enabled"
+                    }
+                  ],
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "type": "LEAF",
+                      "scope": "#/properties/configuration/properties/documentation/properties/enabled",
+                      "expectedValue": true
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "label": "Documentation"
+    }
+  ],
+  "options": {
+    "variant": "stepper",
+    "showNavButtons": true
+  }
+}

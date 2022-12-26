@@ -1,0 +1,112 @@
+{
+    "service_name": "Django Backend",
+    "organization_name": "Trilogy",
+    "project": {
+        "name": "MyProject",
+        "slug": "myproject",
+        "description": "Sample Project Description"
+    },
+    "user": {
+        "email": "info@trilogy.com",
+        "first_name": "Saksham Mittal",
+        "ad_username": "sakshammittal",
+        "github_username": "saksham-ti"
+    },
+    "authentication": {
+        "enabled": true,
+        "rest": {
+            "enabled": true
+        },
+        "social": {
+            "enabled": false,
+            "google": {
+                "enabled": false
+            },
+            "github": {
+                "enabled": false
+            },
+            "devconnect": {
+                "enabled": false
+            }
+        }
+    },
+    "database": {
+        "enabled": true,
+        "type": "postgresql"
+    },
+    "documentation": {
+        "enabled": true,
+        "swagger": {
+            "enabled": true
+        },
+        "readme": {
+            "enabled": true
+        },
+        "demo_curl_requests": {
+            "enabled": true
+        },
+        "sample_crud": {
+            "enabled": true
+        }
+    },
+    "configuration": {
+        "linter": {
+            "enabled": true
+        },
+        "local_debugger": {
+            "enabled": true
+        },
+        "dockerfile": {
+            "enabled": true
+        },
+        "logger": {
+            "enabled": true
+        },
+        "xray": {
+            "enabled": true
+        }
+    },
+    "caching": {
+        "enabled": false
+    },
+    "tests": {
+        "enabled": true,
+        "sample_tests": true
+    },
+    "s3": {
+        "enabled": false
+    },
+    "ci_cd": {
+        "deployment": {
+            "enabled": true
+        },
+        "publish": {
+            "enabled": true
+        },
+        "testing": {
+            "enabled": true
+        },
+        "code_analysis": {
+            "enabled": true
+        },
+        "test_coverage": {
+            "enabled": true
+        },
+        "linting": {
+            "enabled": true
+        }
+    },
+    "deployment": {
+        "enabled": true,
+        "selected": "ECS (CDK) - Recommended",
+        "cdk": {
+            "enabled": true,
+            "cluster": {
+                "available": true
+            }
+        },
+        "eyk": {
+            "enabled": false
+        }
+    }
+}

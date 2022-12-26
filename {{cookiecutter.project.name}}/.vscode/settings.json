@@ -1,0 +1,32 @@
+{
+   "python.pythonPath": "/home/gitpod/.pyenv/shims/python",
+   "python.linting.enabled": true,
+   "python.linting.pylintPath": "/home/gitpod/.pyenv/shims/pylint",
+   "python.linting.pylintEnabled": true,
+   "python.linting.pylintUseMinimalCheckers": false,
+   "python.linting.pylintArgs": [
+       "--rcfile", ".pylintrc",
+       "--disable", "django-not-configured"
+   ],
+   "python.formatting.provider": "autopep8",
+   "python.formatting.autopep8Args": [
+       "--max-line-length",
+       "180"
+   ],
+   "editor.wordWrap": "off",
+   "editor.rulers": [
+       180
+   ],
+   "python.analysis.autoSearchPaths": true,
+   "python.envFile": "${workspaceFolder}/.env",
+   "python.analysis.extraPaths": ["${workspaceFolder}/{{cookiecutter.project.slug}}"],
+   "python.testing.pytestEnabled": true,
+   "python.testing.pytestPath": "/home/gitpod/.pyenv/shims/pytest",
+   "python.testing.pytestArgs": [
+       "tests"
+   ],
+   "python.testing.unittestEnabled": false,
+   "python.testing.nosetestsEnabled": false,
+   "yaml.maxItemsComputed": 10000,
+   "aws.telemetry": false
+}

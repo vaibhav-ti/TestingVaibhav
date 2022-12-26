@@ -1,0 +1,320 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "Service Name",
+      "type": "string"
+    },
+    "configuration": {
+      "type": "object",
+      "required": [
+        "repo_name",
+        "name"
+      ],
+      "properties": {
+        "authentication": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Authentication",
+              "type": "boolean"
+            },
+            "rest": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "REST Authentication",
+                  "type": "boolean"
+                }
+              }
+            },
+            "social": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Social Auths",
+                  "type": "boolean"
+                },
+                "google": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "Google",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "github": {
+                  "title": "GitHub",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "GitHub",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "devconnect": {
+                  "title": "DevConnect",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "DevConnect",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "database": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Create Database (In Central DB Cluster)",
+              "type": "boolean"
+            },
+            "type": {
+              "title": "Database Type",
+              "type": "string",
+              "enum": [
+                "postgresql",
+                "mysql"
+              ]
+            }
+          }
+        },
+        "documentation": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Documentation",
+              "type": "boolean"
+            },
+            "swagger": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Generate Swagger",
+                  "type": "boolean"
+                }
+              }
+            },
+            "readme": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "README Files",
+                  "type": "boolean"
+                }
+              }
+            },
+            "demo_curl_requests": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Demo CURL Requests",
+                  "type": "boolean"
+                }
+              }
+            },
+            "sample_crud": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Sample CRUD",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "configuration": {
+          "type": "object",
+          "properties": {
+            "linter": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Linter (PyLint)",
+                  "type": "boolean"
+                }
+              }
+            },
+            "local_debugger": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Local Debugger",
+                  "type": "boolean"
+                }
+              }
+            },
+            "dockerfile": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "DockerFile",
+                  "type": "boolean"
+                }
+              }
+            },
+            "logger": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Custom Logger",
+                  "type": "boolean"
+                }
+              }
+            },
+            "xray": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "X-Ray",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "caching": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Caching",
+              "type": "boolean"
+            }
+          }
+        },
+        "tests": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Testing (PyTest)",
+              "type": "boolean"
+            },
+            "sample_tests": {
+              "title": "Sample Tests",
+              "type": "boolean"
+            }
+          }
+        },
+        "whitenoise": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "Whitenoise (Static files serving)",
+              "type": "boolean"
+            }
+          }
+        },
+        "ci_cd": {
+          "type": "object",
+          "properties": {
+            "deployment": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Deployment Workflow",
+                  "type": "boolean"
+                }
+              }
+            },
+            "testing": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Testing Workflow",
+                  "type": "boolean"
+                }
+              }
+            },
+            "code_analysis": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Code Analysis Workflow",
+                  "type": "boolean"
+                }
+              }
+            },
+            "test_coverage": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Test Coverage Workflow",
+                  "type": "boolean"
+                }
+              }
+            },
+            "linting": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "Linting Workflow",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "deployment": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "title": "IaC",
+              "type": "boolean"
+            },
+            "selected": {
+              "type": "string",
+              "enum": [
+                "ECS (CDK) - Recommended",
+                "EYK"
+              ]
+            },
+            "cdk": {
+              "title": "ECS (CDK) - Recommended",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "CDK",
+                  "type": "boolean"
+                },
+                "cluster": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "title": "Select if you already have a cluster created.",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "certificate": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "title": "Select if you already have a ACM Certificate",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "eyk": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "title": "EngineYard Kontainer (EYK)",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
