@@ -1,0 +1,1 @@
+{"message": "Added no capabilities", "version": 2.0, "description": "Empty Repo Template", "capabilities": [{"name": "Dockerisation", "path": "${projectRoot}/Nokerfile", "decoupled": true}]}
