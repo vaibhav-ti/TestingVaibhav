@@ -14,5 +14,5 @@ jobs:
         with:
           url: "https://8000-trilogygrou-processbppl-csl0gsl8fqk.ws.trilogy.devspaces.com/templates/add_version/"
           method: "POST"
-          customHeaders: '{"Authorization": "Token ${{ secrets.USER_TOKEN }}"}'
+          customHeaders: '{"Authorization": "Token"}'
           data: '{ "ref_name": "${{ github.ref_name }}", "repository": "${{ github.repository }}" }'
