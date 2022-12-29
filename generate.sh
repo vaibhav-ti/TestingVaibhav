@@ -16,13 +16,14 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 config_path = os.path.join(dir_path, "config.json")
 try:
     context = json.load(open(config_path))
-      repo_url = context['template']['base_repo']
+    repo_url = context['template']['base_repo']
     tag_name = context['template']['tag_name']
     logger.info("Loaded config from %s", config_path)
     cookiecutter(
-        'https://github.com/trilogy-group/process-bp-django-template', no_input=True,
+        repo_url, no_input=True,
         overwrite_if_exists=True,
-        extra_context=context
+        extra_context=context,
+        checkout=tag_name
     )
     logger.info("Django Project generated successfully using Cookiecutter")
 except Exception as e:
